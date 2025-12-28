@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planning & Cost Control Department</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+<style>
+body { font-family: "Segoe UI", sans-serif; overflow-x:hidden; scroll-behavior:smooth; }
+nav { background:white; box-shadow:0 2px 10px rgba(0,0,0,0.1); position:fixed; width:100%; top:0; z-index:50; }
+.nav-container { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+.nav-container a { margin-left:1rem; text-decoration:none; color:#4b5563; font-weight:500; transition: color 0.3s; }
+.nav-container a:hover { color:#2563eb; }
+
+.hero { height:100vh; background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 100%); display:flex; align-items:center; justify-content:center; text-align:center; color:white; padding:0 2rem; }
+.cta-button { display:inline-block; background:white; color:#2563eb; padding:0.75rem 2rem; border-radius:0.5rem; text-decoration:none; font-weight:600; transition: transform 0.3s, box-shadow 0.3s; }
+.cta-button:hover { transform:translateY(-2px); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+
+.section { padding:5rem 2rem; max-width:1200px; margin:0 auto; }
+.section-title { text-align:center; font-size:2.5rem; margin-bottom:3rem; }
+
+.functions-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
+.func-card { background:#3b82f6; border-radius:1rem; padding:1.5rem; color:white; font-weight:600; text-align:center; transition: transform 0.3s, box-shadow 0.3s, background 0.5s; cursor:pointer; }
+.func-card:hover { transform:scale(1.05); background:#2563eb; box-shadow:0 12px 25px rgba(0,0,0,0.2); }
+
+.slider-container { position: relative; max-width: 800px; margin: 2rem auto; overflow: hidden; border-radius: 1.5rem; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+.slide { display:none; padding:2rem; border-radius:1.5rem; color:#fff; text-align:center; animation:fadeIn 1s ease-in-out; }
+.slide.active { display:block; }
+@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+
+.report-card { transition: transform .35s ease, box-shadow .35s ease, background .35s ease, color .35s ease; cursor:pointer; background:white; border-radius:2rem; padding:2rem; text-align:center; }
+.report-card:hover { transform:translateY(-10px) scale(1.03); box-shadow:0 25px 60px rgba(0,0,0,.15); background:linear-gradient(135deg,#3b82f6,#60a5fa); color:white; }
+
+#viewer { display:none; padding-top:2rem; }
+#reportFrame { width:100%; height:80vh; border:none; border-radius:1rem; }
+
+.bg-blue-section { background:linear-gradient(to right,#1e3a8a,#2563eb); color:white; }
+
+footer { background:#1e3a8a; color:white; text-align:center; padding:2rem; margin-top:2rem; }
+
+@media (max-width:768px){ .hero h1{font-size:2rem;} }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-container">
+    <a href="#home" class="text-2xl font-bold text-blue-700">Planning & Cost Control</a>
+    <div>
+      <a href="#functions">Functions</a>
+      <a href="#about">About</a>
+      <a href="#reports">Reports</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="relative z-10 text-center px-6">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4">Planning & Cost Control Department</h1>
+    <p class="text-xl md:text-2xl mb-6 text-white/90">Efficient Planning, Cost Control & Performance Visibility</p>
+    <a href="#functions" class="cta-button">Explore Functions</a>
+  </div>
+  <canvas id="blobCanvas" class="absolute inset-0"></canvas>
+</section>
+
+<!-- FUNCTIONS -->
+<section id="functions" class="section">
+  <h2 class="section-title">Our Key Functions</h2>
+  <div class="functions-grid">
+    <div class="func-card">Project Planning</div>
+    <div class="func-card">Cost Control</div>
+    <div class="func-card">Scheduling</div>
+    <div class="func-card">Reporting</div>
+  </div>
+</section>
+
+<!-- ABOUT + SLIDER -->
+<section id="about" class="section bg-blue-section">
+  <h2 class="section-title">About the Department</h2>
+  <p style="max-width:800px; margin:0 auto 2rem; text-align:center;">Ensures disciplined execution of projects through planning, governance, progress tracking, and reporting.</p>
+  <div class="slider-container">
+    <div class="slide active" style="background:#1e3a8a;"><h3>Strategic Planning</h3><p>Integrated schedules aligned with milestones and resources.</p></div>
+    <div class="slide" style="background:#2563eb;"><h3>Cost Governance</h3><p>Monitoring budgets, forecasting costs, and managing variations.</p></div>
+    <div class="slide" style="background:#3b82f6;"><h3>Progress Measurement</h3><p>Tracking physical and financial progress using KPIs and dashboards.</p></div>
+    <div class="slide" style="background:#60a5fa;"><h3>Management Reporting</h3><p>Delivering clear, data-driven insights through executive dashboards.</p></div>
+  </div>
+</section>
+
+<!-- REPORTS -->
+<section id="reports" class="section bg-gray-50">
+  <h2 class="section-title">Reports</h2>
+  <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+    <div class="report-card" onclick="openReport('internal')">
+      <div class="text-5xl mb-4">📊</div>
+      <h3 class="text-2xl font-bold mb-3">Internal vs Target 2025</h3>
+      <p>Compares planned targets with actual earned values monthly.</p>
+      <div class="bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold inline-block mt-3">Open Dashboard</div>
+    </div>
+    <div class="report-card" onclick="openReport('issue')">
+      <div class="text-5xl mb-4">⚠️</div>
+      <h3 class="text-2xl font-bold mb-3">Issue Tracking Dashboard</h3>
+      <p>Consolidated view of project issues, risks, and mitigation status.</p>
+      <div class="bg-green-700 text-white px-6 py-3 rounded-xl font-semibold inline-block mt-3">Open Dashboard</div>
+    </div>
+  </div>
+  <div id="viewer">
+    <iframe id="reportFrame"></iframe>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section bg-blue-section text-center">
+  <h2 class="section-title">Contact</h2>
+  <p>Alrwawaf Contracting Company, Buraidah, Al-Qassim, Saudi Arabia</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Planning & Cost Control Department
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init();
+
+// Slider
+let currentSlide=0;
+const slides=document.querySelectorAll(".slide");
+function showSlide(i){slides.forEach(s=>s.classList.remove("active"));slides[i].classList.add("active");}
+function nextSlide(){currentSlide=(currentSlide+1)%slides.length; showSlide(currentSlide);}
+setInterval(nextSlide,3000);
+
+// Power BI reports
+function openReport(type){
+  const viewer=document.getElementById('viewer');
+  const frame=document.getElementById('reportFrame');
+  if(type==='internal'){
+    frame.src='https://app.powerbi.com/view?r=eyJrIjoiNjhkOGJlODQtOWU5Zi00NTUzLTg4ODgtYWU3MGNkNzcyNGE2IiwidCI6ImRmOWNkMjc4LWNjNTEtNGIyZC05YzI1LWY0YWVkZTZkYWQyNCIsImMiOjl9';
+  }else{
+    frame.src='https://app.powerbi.com/reportEmbed?reportId=67fff2cf-1fde-4b87-b13f-b864f6cf1002&autoAuth=true&ctid=df9cd278-cc51-4b2d-9c25-f4aede6dad24';
+  }
+  viewer.style.display='block';
+  viewer.scrollIntoView({behavior:'smooth'});
+}
+
+// Blob canvas animation
+const canvas=document.getElementById("blobCanvas");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth; canvas.height=innerHeight;
+class Blob{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.r=60+Math.random()*60;this.vx=(Math.random()-0.5)*1.2;this.vy=(Math.random()-0.5)*1.2;}
+draw(){let g=ctx.createRadialGradient(this.x,this.y,10,this.x,this.y,this.r);g.addColorStop(0,"rgba(59,130,246,0.8)");g.addColorStop(1,"rgba(59,130,246,0.2)");ctx.fillStyle=g;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();}
+update(){this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1;}}
+const blobs=[...Array(7)].map(()=>new Blob());
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);blobs.forEach(b=>{b.update();b.draw();});requestAnimationFrame(animate);}
+animate();
+</script>
+</body>
+</html>
